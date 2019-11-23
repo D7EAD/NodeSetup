@@ -39,4 +39,6 @@ Create relay on specified distribution:
 <br/>
 
 # Notes
+Ater you run nyx (this is after running NodeSetup), it may show a message saying "Relaying Disabled." If this is so, wait a couple of seconds and then it will turn red and read "Tor is Disconnected." Once this shows, press <b>R</b> and all will be up and running.
+
 NodeSetup has only been tested on the Debian distribution and not CentOS, Fedora, or Arch. Since I am a Debian nerd, I will leave any reporting of misconfigured distro-oriented Makefile calls up to the users. I will gladly fix them for anyone who reports, as privacy is very important!
