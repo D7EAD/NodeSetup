@@ -6,8 +6,7 @@ This tool depends on make and sudo, so be sure to have these installed as NodeSe
 <br/>
 
 # Syntax / Parameters
-NodeSetup can be run in its root directory in the following way:
-    make [options]
+NodeSetup can be run in its root directory in the following way: <b>make [option=value, option=value, ...]</b>
 
 NodeSetup has the following parameters which can be used in the [options] syntactical placement:
   - TOR_NODE_TYPE        : has values [RELAY, EXIT, BRIDGE] (default RELAY)
