@@ -80,12 +80,12 @@ configure:
         ifeq ($(OS_DISTRO), debian)
 			@echo "Setting everything up..."
 			sudo apt-get install tor nyx -y
-			@echo BridgeRelay 1 > $(TOR_LOCATION)
-			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
+			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
 			@echo Nickname $(TOR_NICKNAME) >> $(TOR_LOCATION)
-			@echo Exitpolicy $(TOR_EXITPOLICY) >> $(TOR_LOCATION)
+			@echo Exitpolicy $(TOR_EXITPOLICY) >> $(TOR_LOCATION)			
+			@echo BridgeRelay 1 >> $(TOR_LOCATION)
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
@@ -96,12 +96,12 @@ configure:
         ifeq ($(OS_DISTRO), arch)
 			@echo "Setting everything up..."			
 			sudo pacman -S tor torsocks obfsproxy nyx -y	
-			@echo BridgeRelay 1 > $(TOR_LOCATION)
-			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
+			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
 			@echo Nickname $(TOR_NICKNAME) >> $(TOR_LOCATION)
 			@echo Exitpolicy $(TOR_EXITPOLICY) >> $(TOR_LOCATION)
+			@echo BridgeRelay 1 >> $(TOR_LOCATION)			
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
@@ -112,12 +112,12 @@ configure:
         ifeq ($(OS_DISTRO), centos)
 			@echo "Setting everything up..."
 			sudo yum install tor nyx -y
-			@echo BridgeRelay 1 > $(TOR_LOCATION)
-			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
+			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
 			@echo Nickname $(TOR_NICKNAME) >> $(TOR_LOCATION)
 			@echo Exitpolicy $(TOR_EXITPOLICY) >> $(TOR_LOCATION)
+			@echo BridgeRelay 1 >> $(TOR_LOCATION)
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
@@ -128,12 +128,12 @@ configure:
         ifeq ($(OS_DISTRO), fedora)
 			@echo "Setting everything up..."
 			sudo dnf install tor nyx -y
-			@echo BridgeRelay 1 > $(TOR_LOCATION)
-			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
+			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
 			@echo Nickname $(TOR_NICKNAME) >> $(TOR_LOCATION)
 			@echo Exitpolicy $(TOR_EXITPOLICY) >> $(TOR_LOCATION)
+			@echo BridgeRelay 1 >> $(TOR_LOCATION)
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
