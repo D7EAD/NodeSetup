@@ -20,3 +20,18 @@ NodeSetup has the following parameters which can be used in the [options] syntac
   - TOR_BANDWIDTHMAX     : string value (default "4096 KBytes")
   - TOR_BANDWIDTHBURST   : string value (default "8192 KBytes")
   - OS_DISTRO            : has values [debian, centos, fedora, arch] (default debian)
+  
+<br/>
+
+# Examples
+Create exit node:
+  - make TOR_NODE_TYPE=EXIT
+  
+Create relay node with rate of 15 MB and burst of 30 MB:
+  - make TOR_BANDWIDTHMAX="15 MBytes" TOR_BANDWIDTHBURST="30 MBytes"
+  
+Create relay with nickname and contact info:
+  - make TOR_NICKNAME="coolrelay" TOR_CONTACT="johndoe@johndoebusiness.org"
+  
+Create relay on specified distribution:
+  - make OS_DISTRO=centos
