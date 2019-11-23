@@ -35,3 +35,8 @@ Create relay with nickname and contact info:
   
 Create relay on specified distribution:
   - make OS_DISTRO=centos
+
+<br/>
+
+# Notes
+NodeSetup has only been tested on the Debian distribution and not CentOS, Fedora, or Arch. Since I am a Debian nerd, I will leave any reporting of misconfigured distro-oriented Makefile calls up to the users. I will gladly fix them for anyone who reports, as privacy is very important!
