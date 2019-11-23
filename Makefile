@@ -1,4 +1,4 @@
-# Basic Tor node setup made for the kids
+# Basic Tor node setup made for the kids and/or lazies ;)
 # NOT TESTED ON ARCH, CENTOS, AND FEDORA
 
 TOR_NODE_TYPE=RELAY
@@ -17,7 +17,7 @@ configure:
     ifeq ($(TOR_NODE_TYPE), RELAY)
         ifeq ($(OS_DISTRO), debian)
 			@echo "Setting everything up..."
-			@sudo apt-get install tor &>/dev/null
+			sudo apt-get install tor nyx -y
 			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
@@ -26,14 +26,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo apt-get install nyx &>/dev/null
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), arch)
 			@echo "Setting everything up..."
-			@sudo pacman -S tor torsocks obfsproxy &>/dev/null
+			sudo pacman -S tor torsocks obfsproxy nyx -y
 			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
@@ -42,14 +41,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo pacman -S nyx &>/dev/null
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), centos)
 			@echo "Setting everything up..."
-			@sudo yum install tor &>/dev/null
+			sudo yum install tor nyx -y
 			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
@@ -58,14 +56,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo yum install nyx &>/dev/null
 			@sudo systemctl restart tor
 			@clear			
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), fedora)
 			@echo "Setting everything up..."
-			@sudo dnf install tor &>/dev/null
+			sudo dnf install tor nyx -y
 			@echo CookieAuthentication 1 > $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
 			@echo ControlPort $(TOR_CONTROLPORT) >> $(TOR_LOCATION)
@@ -74,7 +71,6 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo dnf install nyx &>/dev/null
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
@@ -83,7 +79,7 @@ configure:
     ifeq ($(TOR_NODE_TYPE), BRIDGE)
         ifeq ($(OS_DISTRO), debian)
 			@echo "Setting everything up..."
-			@sudo apt-get install tor &>/dev/null											
+			sudo apt-get install tor nyx -y
 			@echo BridgeRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -93,14 +89,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo apt-get install nyx &>/dev/null         									
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), arch)
 			@echo "Setting everything up..."			
-			@sudo pacman -S tor torsocks obfsproxy &>/dev/null								
+			sudo pacman -S tor torsocks obfsproxy nyx -y	
 			@echo BridgeRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -110,14 +105,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo pacman -S nyx &>/dev/null         										
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), centos)
 			@echo "Setting everything up..."
-			@sudo yum install tor &>/dev/null												
+			sudo yum install tor nyx -y
 			@echo BridgeRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -127,14 +121,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo yum install nyx &>/dev/null         										
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), fedora)
 			@echo "Setting everything up..."
-			@sudo dnf install tor &>/dev/null												
+			sudo dnf install tor nyx -y
 			@echo BridgeRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -144,7 +137,6 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo dnf install nyx &>/dev/null												
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
@@ -153,7 +145,7 @@ configure:
     ifeq ($(TOR_NODE_TYPE), EXIT)
         ifeq ($(OS_DISTRO), debian)
 			@echo "Setting everything up..."
-			@sudo apt-get install tor &>/dev/null											
+			sudo apt-get install tor nyx -y
 			@echo ExitRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -163,14 +155,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo apt-get install nyx &>/dev/null         								
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), arch)
 			@echo "Setting everything up..."
-			@sudo pacman -S tor torsocks obfsproxy &>/dev/null								
+			sudo pacman -S tor torsocks obfsproxy nyx -y
 			@echo ExitRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -180,14 +171,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo pacman -S nyx &>/dev/null         									
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), centos)
 			@echo "Setting everything up..."
-			@sudo yum install tor &>/dev/null												
+			sudo yum install tor nyx -y
 			@echo ExitRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -197,14 +187,13 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo yum install nyx &>/dev/null        										
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
         endif
         ifeq ($(OS_DISTRO), fedora)
 			@echo "Setting everything up..."
-			@sudo dnf install tor &>/dev/null												
+			sudo dnf install tor nyx -y
 			@echo ExitRelay 1 > $(TOR_LOCATION)
 			@echo CookieAuthentication 1 >> $(TOR_LOCATION)
 			@echo ORPort $(TOR_ORPORT) >> $(TOR_LOCATION)
@@ -214,7 +203,6 @@ configure:
 			@echo ContactInfo $(TOR_CONTACT) >> $(TOR_LOCATION)
 			@echo RelayBandwidthRate $(TOR_BANDWIDTHMAX) >> $(TOR_LOCATION)
 			@echo RelayBandwidthBurst $(TOR_BANDWIDTHBURST) >> $(TOR_LOCATION)
-			@sudo dnf install nyx &>/dev/null												
 			@sudo systemctl restart tor
 			@clear
 			@echo "Setup complete! If all went well, you may now run <nyx> to monitor your node!"
